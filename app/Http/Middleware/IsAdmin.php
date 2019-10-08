@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Middleware;
-
 use Closure;
 
 class IsAdmin
@@ -15,6 +14,9 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
+        if (auth()->check() && $request->user()->access == 0){
+          return redirect()->guest('home');
+        }
         return $next($request);
     }
 }

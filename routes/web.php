@@ -11,20 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::group(['middleware' => ['web', 'auth']], function(){
+  Route::get('/', function () {
+      return view('layouts.app');
+  });
+
+  Route::get('/admin', function(){
+    if (Auth::user()->access > 0) {
+      $users['users'] = Auth::user();
+      return view('admin.dashboard', $users);
+    } else {
+      echo "Not Admin";
+    }
+  });
 });
 
-
-Route::get('/admin', function(){
-  return "Admin page";
-})->middleware('auth','isAdmin');
-
-Route::get('/login', function () {
-  return view('login');
+Route::get('/warning', function(){
+  return view('warning');
 });
 
 Route::get('/categories', function () {
-    // return view('welcome');
     echo "categories";
 });
