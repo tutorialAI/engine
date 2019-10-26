@@ -9,7 +9,7 @@
   @if ($users->access == 1)
     <i>Копирайтер</i>
   @elseif ($users->access == 2)
-    <i>Копирайтер высшего порядка</i>
+    <i>Модератор</i>
   @endif
 </h4>
 
