@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public static function getPermissions()
+    protected static function getPermissions()
     {
       return User::where('id', 3)->first();
     }

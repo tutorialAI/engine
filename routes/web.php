@@ -43,6 +43,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
   });
 });
 
+Route::resource('statistica', 'StatisticsController');
 
 Route::get('/warning', function(){
   return view('warning');
