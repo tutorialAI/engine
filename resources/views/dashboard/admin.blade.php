@@ -1,3 +1,6 @@
+@extends('layouts.admin')
+
+@section('content')
 <h3>
   Админпанель
 </h3>
@@ -21,3 +24,4 @@
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
 </form>
+@endsection

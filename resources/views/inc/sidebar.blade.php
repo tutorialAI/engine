@@ -9,7 +9,7 @@
         <li class="">
             <a href="adminiztrator.php?page=users">Администраторы</a>
         </li>
-        <li class=""><a href="adminiztrator.php?page=writer">Видео</a></li>
+        <li class=""><a href="admin/video">Видео</a></li>
         <li class=""><a href="adminiztrator.php?page=towns">Сайты</a></li>
         <li class=""><a href="adminiztrator.php?page=actor">Актеры</a></li>
         <li class=""><a href="adminiztrator.php?page=duplicate_testing">Проверка текстов</a></li>

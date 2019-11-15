@@ -18,35 +18,35 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="#app">
         @include('inc.sidebar')
-    <div id="content" class="app admin">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="btn btn btn-primary">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                   <i class="fas fa-align-justify"></i>
-                </button>
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Page</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Page</a>
-                        </li>
-                    </ul>
+        <div id="content" class="app admin">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                       <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
             @yield('content')
         </div>
     </div>

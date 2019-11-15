@@ -22,6 +22,8 @@ Route::get('/', function () {
 //     return view('layouts.home');
 // });
 
+// Routes if user administrator and authorized
+
 Route::group(['middleware' => ['web', 'auth']], function(){
 
   Route::get('/admin', function(){
@@ -41,6 +43,9 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         break;
     }
   });
+
+  Route::get('/admin/video', 'VideosController@index');
+  Route::get('/admin/video/get', 'VideosController@getVideos');
 });
 
 Route::resource('statistica', 'StatisticsController');
@@ -52,3 +57,4 @@ Route::get('/warning', function(){
 Route::get('/categories', function () {
     echo "categories";
 });
+
