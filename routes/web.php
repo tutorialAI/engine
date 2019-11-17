@@ -26,20 +26,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 
   Route::get('/admin', function(){
     $users['users'] = Auth::user();
-    switch (Auth::user()->access) {
-      case 1:
-        return view('dashboard.admin', $users);
-        break;
-      case 2:
-        return view('dashboard.copyrighter', $users);
-        break;
-      case 3:
-        return view('dashboard.admin', $users);
-        break;
-      default:
-        return view('users.home');
-        break;
-    }
+        return view('layouts.admin', $users);
   });
 });
 
@@ -52,3 +39,5 @@ Route::get('/warning', function(){
 Route::get('/categories', function () {
     echo "categories";
 });
+
+Route::get('/admin/{any}', 'Admin\AdminSpaController@index')->where('any', '.*');
