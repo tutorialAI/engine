@@ -6,6 +6,7 @@ import App from './components/App.vue'
 import Dashboard from './components/Dashboard.vue'
 import Sidebar from './components/Sidebar.vue'
 import SiteList from './components/SiteList.vue'
+import Users from './components/Users.vue'
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,13 @@ const router = new VueRouter({
         path: '/admin/sites',
         name: 'site-list',
         component: SiteList
-    }]
+    },
+    {
+        path: '/admin/users',
+        name: 'users',
+        component: Users
+    },
+    ]
  });   
 
 const app = new Vue({

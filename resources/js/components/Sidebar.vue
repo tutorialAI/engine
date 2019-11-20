@@ -7,9 +7,7 @@
         </div>
         </a>
         <ul class="list-unstyled components">
-            <li class="">
-                <a href="adminiztrator.php?page=users">Администраторы</a>
-            </li>
+            <router-link to="/admin/users"><li>Пользователи</li></router-link>
             <router-link to="/admin/sites"><li>Сайты</li></router-link>
             <li class=""><a href="adminiztrator.php?page=writer">Видео</a></li>
             <li class=""><a href="adminiztrator.php?page=towns">Сайты</a></li>

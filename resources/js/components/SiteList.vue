@@ -19,7 +19,7 @@
 		     </th></tr> 
 		  </thead>
         <tbody id="list">
-            <tr  v-for="(site, index) in sites" :data-category="site.id" class="hiding out">
+            <tr  v-for="(site, index) in sites" :data-category="site.id">
                 <td align="left">{{ site.id }}</td>
                 <td align="center">
                     <i class="fa fa-folder-o"></i>

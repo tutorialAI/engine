@@ -4,5 +4,12 @@
 // Variables
 @import 'variables';
 
+.router-link-active{
+	li{
+		color: #fff;
+		background-color: #4b76c3;
+	}
+}
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

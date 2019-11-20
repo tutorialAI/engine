@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace_prefix' => 'Admin'], function(){
-	Route::get('sites/', 'Admin\SiteListController@index');
+	Route::get('sites/', 'Admin\SiteListController@show');
+	Route::get('users/', 'Admin\UsersController@show');
 });

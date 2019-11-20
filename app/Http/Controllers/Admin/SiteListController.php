@@ -10,7 +10,7 @@ use App\SiteList;
 class SiteListController extends Controller
 {     
 
-   	public function index()
+   	public function show()
    	{
 
          $site_list = SiteList::all()->where('id','>', 41);
