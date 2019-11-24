@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class VideosController extends Controller
 {
-   public function getVideos()
+   public function getVideoinfo()
    {
 	   	
    }

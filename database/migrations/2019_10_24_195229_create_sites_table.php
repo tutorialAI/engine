@@ -13,14 +13,14 @@ class CreateSitesTable extends Migration
      */
     public function up()
     {
-        // Schema::create('sites', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->string('name');
-        //     $table->string('folder_name');
-        //     $table->string('videocount_main');
-        //     $table->string('videocount_more');
-        //     $table->timestamp('created_at')->nullable();
-        // });
+        Schema::create('sites', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('folder_name');
+            $table->string('videocount_main');
+            $table->string('videocount_more');
+            $table->timestamp('created_at')->nullable();
+        });
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateSitesTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('sites');
+        Schema::dropIfExists('sites');
     }
 }

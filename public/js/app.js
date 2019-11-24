@@ -1993,6 +1993,214 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Video.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Video.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      video: [],
+      title: '',
+      keywords: '',
+      description: '',
+      info: ''
+    };
+  },
+  created: function created() {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function created$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/video'));
+
+          case 3:
+            res = _context.sent;
+            this.video = res.data;
+            console.log(this.video);
+            _context.next = 11;
+            break;
+
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, this, [[0, 8]]);
+  },
+  methods: {
+    setVideoInfo: function setVideoInfo() {
+      console.log(this.title);
+    },
+    inputLength: function inputLength() {}
+  },
+  computed: {
+    showTitle: function showTitle() {
+      console.log(this.title);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/is-buffer/index.js":
 /*!*****************************************!*\
   !*** ./node_modules/is-buffer/index.js ***!
@@ -3380,6 +3588,10 @@ var render = function() {
           _c("li", [_vm._v("Сайты")])
         ]),
         _vm._v(" "),
+        _c("router-link", { attrs: { to: "/admin/video" } }, [
+          _c("li", [_vm._v("Видео")])
+        ]),
+        _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
         _vm._m(2),
@@ -3388,14 +3600,12 @@ var render = function() {
         _vm._v(" "),
         _vm._m(4),
         _vm._v(" "),
-        _vm._m(5),
-        _vm._v(" "),
-        _vm._m(6)
+        _vm._m(5)
       ],
       1
     ),
     _vm._v(" "),
-    _vm._m(7)
+    _vm._m(6)
   ])
 }
 var staticRenderFns = [
@@ -3407,16 +3617,6 @@ var staticRenderFns = [
       _c("div", { staticClass: "sidebar-header logotype" }, [
         _c("i", { staticClass: "fa fa-cube" }),
         _vm._v("\n            Админпанель             \n        ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", {}, [
-      _c("a", { attrs: { href: "adminiztrator.php?page=writer" } }, [
-        _vm._v("Видео")
       ])
     ])
   },
@@ -3769,6 +3969,916 @@ var staticRenderFns = [
           attrs: { title: "удалить" }
         },
         [_c("i", { staticClass: "fa fa-trash" })]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Video.vue?vue&type=template&id=21c9d7a0&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Video.vue?vue&type=template&id=21c9d7a0& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "replenishment form-group bd-example" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", { attrs: { id: _vm.video.id } }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "video_id",
+          type: "hidden",
+          name: "video_id",
+          value: "5950"
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          id: "video_file",
+          type: "hidden",
+          name: "videofile",
+          value: "186378"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "row", staticStyle: { padding: "0 15px" } }, [
+        _c(
+          "table",
+          { staticClass: "form-group col-lg-6 col-md-12 col-xs-12" },
+          [
+            _c("tbody", [
+              _c("tr", [
+                _c("td", [
+                  _c("b", [_vm._v("Имя актрисы")]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "badge badge-secondary form_actor-name",
+                      attrs: { id: "video_name" }
+                    },
+                    [
+                      _vm._v(
+                        _vm._s(_vm.video.name) +
+                          "\n                            "
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", { attrs: { id: "video_player" } }, [
+                  _c(
+                    "video",
+                    {
+                      staticStyle: { width: "100%", "max-width": "853px" },
+                      attrs: {
+                        poster:
+                          "/poster/" + _vm.video.videofileint + ".mp4.jpg",
+                        controls: "controls"
+                      }
+                    },
+                    [
+                      _c("source", {
+                        attrs: {
+                          src: "/video/" + _vm.video.videofileint + ".mp4",
+                          type: 'video/mp4; codecs="avc1.42E01E,mp4a.40.2"'
+                        }
+                      })
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c(
+                  "td",
+                  { staticClass: "info-labels", attrs: { align: "left" } },
+                  [
+                    _c("label", { staticClass: "title" }, [
+                      _vm._v("title\n                            \t"),
+                      _c(
+                        "b",
+                        {
+                          staticClass: "message-color",
+                          style:
+                            _vm.title.length < 50
+                              ? "color: red"
+                              : "color: green"
+                        },
+                        [_vm._v(_vm._s(_vm.title.length) + " ")]
+                      ),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.title,
+                          expression: "title"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm",
+                      attrs: { type: "text", name: "title", value: "" },
+                      domProps: { value: _vm.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.title = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "keywords" }, [
+                      _vm._v("keywords\n\t\t\t\t\t\t\t\t"),
+                      _c(
+                        "b",
+                        {
+                          staticClass: "message-color",
+                          style:
+                            _vm.keywords.length < 40
+                              ? "color: red"
+                              : "color: green"
+                        },
+                        [_vm._v(_vm._s(_vm.keywords.length) + " ")]
+                      ),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.keywords,
+                          expression: "keywords"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm",
+                      attrs: { type: "text", name: "keywords" },
+                      domProps: { value: _vm.keywords },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.keywords = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "description" }, [
+                      _vm._v("description\n\t\t\t\t\t\t\t\t"),
+                      _c(
+                        "b",
+                        {
+                          staticClass: "message-color",
+                          style:
+                            _vm.description.length < 120
+                              ? "color: red"
+                              : "color: green"
+                        },
+                        [_vm._v(_vm._s(_vm.description.length) + " ")]
+                      ),
+                      _c("br")
+                    ]),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.description,
+                          expression: "description"
+                        }
+                      ],
+                      staticClass: "form-control form-control-sm",
+                      attrs: { type: "text", name: "description", value: "" },
+                      domProps: { value: _vm.description },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.description = $event.target.value
+                        }
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _c("label", { staticClass: "text_video" }, [
+                    _vm._v("Описание "),
+                    _c(
+                      "b",
+                      {
+                        staticClass: "message-color",
+                        style:
+                          _vm.info.length < 350 ? "color: red" : "color: green"
+                      },
+                      [_vm._v(_vm._s(_vm.info.length))]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.info,
+                        expression: "info"
+                      }
+                    ],
+                    attrs: { name: "text_video", rows: "5" },
+                    domProps: { value: _vm.info },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.info = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "categories_section" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "form-inline mb-2 col-md-6",
+              staticStyle: { "padding-right": "0" }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "col-md-4" },
+                [
+                  _c("b", [_vm._v("Категории")]),
+                  _vm._v(" "),
+                  _c("font", { attrs: { id: "cat-count", color: "red" } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(2)
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(3)
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success",
+          attrs: { id: "video_set", "data-id": "5950", type: "button" },
+          on: {
+            click: function($event) {
+              return _vm.setVideoInfo()
+            }
+          }
+        },
+        [_vm._v("сохранить")]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "alert alert-primary" }, [
+      _c("span", [_vm._v("После добавления ролика, нажимайте «Cохранить»")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v("Для получения нового видео нажмите «Получить видео»")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "col-lg-6 d-sm-none d-xs-none d-md-block",
+        staticStyle: { "margin-top": "15px" }
+      },
+      [
+        _c("div", { staticClass: "alert alert-danger" }, [
+          _c("h5", { staticClass: "alert-heading text-center" }, [
+            _vm._v(
+              "\n                        ДАННЫЕ ПУНКТЫ ВАЖНЫ\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("h6", { staticClass: "alert-heading text-center" }, [
+            _vm._v("НЕВЫПОЛНЕНИЕ ОНЫХ - НЕТ ОПЛАТЫ\n                    ")
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "В описании используем слова относящейся к разделу. Если добавляете в раздел блондинки - в описании должно быть написано про блондинок. Если они сосут - значит описать это и добавить в соответствующий раздел и т.д."
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                        Помимо вышеперечисленного, мы указываем всю женскую атрибутику (чулки, каблуки, очки) + особенность локации и место действия (массаж, в масле, спортсменки, на природе, в лесу, на улице, в офисе и т.д.).\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("ul", [
+            _vm._v(
+              "Важно проставить главные категории:\n                        "
+            ),
+            _c("li", [
+              _vm._v("Это поза, нация, цвет волос + изюминку ролика: ")
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(
+                "Локация: в машине, массаж, врачи, в школе, спортсменки и т.д."
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(
+                "Девушки: в платье, юбки, чулки, очки, красивое нижнее белье и т.д."
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              'Если вы указываете имя актрисы в тайтле, либо в описании - ставьте категорию "порно звезды" или "актрисы"'
+            )
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "В категориях указываем цвет волос, особенности национальной принадлежности девушки (мулатки, латинки, негритянки и т.д.), и то в какой позе она занимается сексом."
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "В первую очередь, мы это делаем для удобства пользователей поиска искомого контента."
+            )
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-0" }, [
+            _vm._v(
+              "НЕДОПУСТИМО присваивания категорий которые не соответствуют ролику. (если в ролике блондинка дрочит, то не должна стоять категория “негры”)"
+            )
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-0" }, [
+            _vm._v(
+              "НЕДОПУСТИМО использование спецсимволов | % @ ^ * ( ) & $ # ; _ /"
+            )
+          ]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-0" }, [
+            _vm._v(
+              "! ? . не используется в title. В остальных полях на ! ? . ограничений нет"
+            )
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-md-8 p-0", attrs: { id: "category_search" } },
+      [
+        _c("input", {
+          staticClass: "form-control-sm",
+          attrs: {
+            type: "text",
+            id: "category_search-line",
+            placeholder: "Поиск категории"
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { attrs: { id: "category_search-result" } })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "list-group list-group-flush",
+          attrs: { id: "categories_container" }
+        },
+        [
+          _c("li", { staticClass: "group-title required-group" }, [
+            _c("h5", [
+              _vm._v("Возраст "),
+              _c("span", { staticClass: "badge badge-danger" }, [_vm._v("!")]),
+              _vm._v(" "),
+              _c("hr")
+            ]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12 row categories_list" }, [
+                _c("p", { staticClass: "category-title col-md-12" }, [
+                  _vm._v("Старые")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item category_item-299 custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "299",
+                        id: "cat-299"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-299" }
+                      },
+                      [_vm._v("Старые")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "77",
+                        id: "cat-77"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-77" }
+                      },
+                      [_vm._v("Старухи")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "102",
+                        id: "cat-102"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-102" }
+                      },
+                      [_vm._v("Молодые и старые")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "181",
+                        id: "cat-181"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-181" }
+                      },
+                      [_vm._v("Старики")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "182",
+                        id: "cat-182"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-182" }
+                      },
+                      [_vm._v("Деды")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "52",
+                        id: "cat-52"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-52" }
+                      },
+                      [_vm._v("Старушки")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "63",
+                        id: "cat-63"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-63" }
+                      },
+                      [_vm._v("Бабушки")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12 row categories_list" }, [
+                _c("p", { staticClass: "category-title col-md-12" }, [
+                  _vm._v("Зрелые")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item category_item-4 custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "4",
+                        id: "cat-4"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-4" }
+                      },
+                      [_vm._v("Зрелые")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "72",
+                        id: "cat-72"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-72" }
+                      },
+                      [_vm._v("Милфы")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "108",
+                        id: "cat-108"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-108" }
+                      },
+                      [_vm._v("Постарше")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12 row categories_list" }, [
+                _c("p", { staticClass: "category-title col-md-12" }, [
+                  _vm._v("Молодые")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item category_item-42 custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "42",
+                        id: "cat-42"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-42" }
+                      },
+                      [_vm._v("Молодые")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "243",
+                        id: "cat-243"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-243" }
+                      },
+                      [_vm._v("18 лет")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "6",
+                        id: "cat-6"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-6" }
+                      },
+                      [_vm._v("Подростки")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "14",
+                        id: "cat-14"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-14" }
+                      },
+                      [_vm._v("Молоденькие")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "35",
+                        id: "cat-35"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-35" }
+                      },
+                      [_vm._v("Студенты")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  {
+                    staticClass:
+                      "custom-control category_item custom-checkbox mb-2"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "custom-control-input",
+                      attrs: {
+                        type: "checkbox",
+                        "data-category": "68",
+                        id: "cat-68"
+                      }
+                    }),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "custom-control-label",
+                        attrs: { for: "cat-68" }
+                      },
+                      [_vm._v("Юные")]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ]
       )
     ])
   }
@@ -18796,6 +19906,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Sidebar_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Sidebar.vue */ "./resources/js/components/Sidebar.vue");
 /* harmony import */ var _components_SiteList_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/SiteList.vue */ "./resources/js/components/SiteList.vue");
 /* harmony import */ var _components_Users_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue");
+/* harmony import */ var _components_Video_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Video.vue */ "./resources/js/components/Video.vue");
+
 
 
 
@@ -18815,6 +19927,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/admin/users',
     name: 'users',
     component: _components_Users_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  }, {
+    path: '/admin/video',
+    name: 'video',
+    component: _components_Video_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
   }]
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -19172,6 +20288,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_30c27aa6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_30c27aa6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Video.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Video.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Video_vue_vue_type_template_id_21c9d7a0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Video.vue?vue&type=template&id=21c9d7a0& */ "./resources/js/components/Video.vue?vue&type=template&id=21c9d7a0&");
+/* harmony import */ var _Video_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Video.vue?vue&type=script&lang=js& */ "./resources/js/components/Video.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Video_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Video_vue_vue_type_template_id_21c9d7a0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Video_vue_vue_type_template_id_21c9d7a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Video.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Video.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/Video.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Video_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Video.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Video.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Video_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Video.vue?vue&type=template&id=21c9d7a0&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/Video.vue?vue&type=template&id=21c9d7a0& ***!
+  \**************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Video_vue_vue_type_template_id_21c9d7a0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Video.vue?vue&type=template&id=21c9d7a0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Video.vue?vue&type=template&id=21c9d7a0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Video_vue_vue_type_template_id_21c9d7a0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Video_vue_vue_type_template_id_21c9d7a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

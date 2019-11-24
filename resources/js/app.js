@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard.vue'
 import Sidebar from './components/Sidebar.vue'
 import SiteList from './components/SiteList.vue'
 import Users from './components/Users.vue'
+import Video from './components/Video.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,11 @@ const router = new VueRouter({
         path: '/admin/users',
         name: 'users',
         component: Users
+    },
+    {
+        path: '/admin/video',
+        name: 'video',
+        component: Video
     },
     ]
  });   
