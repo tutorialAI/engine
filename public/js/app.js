@@ -2130,22 +2130,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2154,11 +2138,16 @@ __webpack_require__.r(__webpack_exports__);
       title: '',
       keywords: '',
       description: '',
-      info: ''
+      categories: [],
+      sub_cat: [],
+      tags: [],
+      info: '',
+      filteredText: '',
+      filteredCat: []
     };
   },
   created: function created() {
-    var res;
+    var videoinfo, responce;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function created$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -2168,33 +2157,53 @@ __webpack_require__.r(__webpack_exports__);
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/video'));
 
           case 3:
-            res = _context.sent;
-            this.video = res.data;
-            console.log(this.video);
-            _context.next = 11;
+            videoinfo = _context.sent;
+            this.video = videoinfo.data;
+            _context.next = 7;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/categories'));
+
+          case 7:
+            responce = _context.sent;
+            this.categories = responce.data.filter(function (item) {
+              return item.parent == 0;
+            });
+            this.sub_cat = responce.data.filter(function (item) {
+              return item.sort == 2;
+            });
+            this.tags = responce.data.filter(function (item) {
+              return item.sort == 3;
+            });
+            _context.next = 16;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 13:
+            _context.prev = 13;
             _context.t0 = _context["catch"](0);
             console.error(_context.t0);
 
-          case 11:
+          case 16:
           case "end":
             return _context.stop();
         }
       }
-    }, null, this, [[0, 8]]);
+    }, null, this, [[0, 13]]);
   },
   methods: {
     setVideoInfo: function setVideoInfo() {
       console.log(this.title);
-    },
-    inputLength: function inputLength() {}
+    }
   },
   computed: {
-    showTitle: function showTitle() {
-      console.log(this.title);
+    catFilter: function catFilter() {
+      var _this = this;
+
+      if (this.filteredText.length) {
+        this.filteredCat = this.tags.filter(function (item) {
+          return item.value.toLowerCase().indexOf(_this.filteredText.toLowerCase()) >= 0;
+        });
+      } else {
+        this.filteredCat = [];
+      }
     }
   }
 });
@@ -4037,7 +4046,7 @@ var render = function() {
                     [
                       _vm._v(
                         _vm._s(_vm.video.name) +
-                          "\n                            "
+                          "\n\t                            "
                       )
                     ]
                   )
@@ -4074,7 +4083,7 @@ var render = function() {
                   { staticClass: "info-labels", attrs: { align: "left" } },
                   [
                     _c("label", { staticClass: "title" }, [
-                      _vm._v("title\n                            \t"),
+                      _vm._v("title\n\t                            \t"),
                       _c(
                         "b",
                         {
@@ -4112,7 +4121,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("label", { staticClass: "keywords" }, [
-                      _vm._v("keywords\n\t\t\t\t\t\t\t\t"),
+                      _vm._v("keywords\n\t\t\t\t\t\t\t\t\t"),
                       _c(
                         "b",
                         {
@@ -4152,7 +4161,7 @@ var render = function() {
                     }),
                     _vm._v(" "),
                     _c("label", { staticClass: "description" }, [
-                      _vm._v("description\n\t\t\t\t\t\t\t\t"),
+                      _vm._v("description\n\t\t\t\t\t\t\t\t\t"),
                       _c(
                         "b",
                         {
@@ -4238,33 +4247,183 @@ var render = function() {
         _vm._m(1)
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "categories_section" }, [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            {
-              staticClass: "form-inline mb-2 col-md-6",
-              staticStyle: { "padding-right": "0" }
-            },
-            [
+      _c(
+        "div",
+        { staticClass: "categories_section" },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "form-inline mb-2 col-md-6",
+                staticStyle: { "padding-right": "0" }
+              },
+              [
+                _c(
+                  "div",
+                  { staticClass: "col-md-4" },
+                  [
+                    _c("b", [_vm._v("Категории")]),
+                    _vm._v(" "),
+                    _c("font", { attrs: { id: "cat-count", color: "red" } })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-8 p-0",
+                    attrs: { id: "category_search" }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.filteredText,
+                          expression: "filteredText"
+                        }
+                      ],
+                      staticClass: "form-control-sm",
+                      attrs: {
+                        type: "text",
+                        id: "category_search-line",
+                        placeholder: "Поиск категории"
+                      },
+                      domProps: { value: _vm.filteredText },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.filteredText = $event.target.value
+                          },
+                          function($event) {
+                            return _vm.catFilter()
+                          }
+                        ]
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { attrs: { id: "category_search-result" } },
+                      _vm._l(_vm.filteredCat, function(cat) {
+                        return _c(
+                          "li",
+                          {
+                            staticClass:
+                              "custom-control category_item custom-checkbox mb-2"
+                          },
+                          [
+                            _c("input", {
+                              staticClass: "custom-control-input",
+                              attrs: {
+                                type: "checkbox",
+                                "data-category": "112",
+                                id: "cat-112"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "custom-control-label",
+                                attrs: { for: "cat-112" }
+                              },
+                              [_vm._v(_vm._s(cat.value))]
+                            )
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.categories, function(category, index) {
+            return _c("div", { staticClass: "card" }, [
               _c(
-                "div",
-                { staticClass: "col-md-4" },
+                "ul",
+                {
+                  staticClass: "list-group list-group-flush",
+                  attrs: { id: "categories_container" }
+                },
                 [
-                  _c("b", [_vm._v("Категории")]),
+                  _c("h5", { staticClass: "group-title" }, [
+                    _vm._v(_vm._s(category.value) + " "),
+                    category.required
+                      ? _c("span", { staticClass: "badge badge-danger" }, [
+                          _vm._v("!")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("hr")
+                  ]),
                   _vm._v(" "),
-                  _c("font", { attrs: { id: "cat-count", color: "red" } })
+                  _vm._l(_vm.sub_cat, function(sub) {
+                    return _c("ul", { staticClass: "row" }, [
+                      sub.parent == category.id
+                        ? _c(
+                            "div",
+                            { staticClass: "col-md-12 row categories_list" },
+                            [
+                              _c(
+                                "p",
+                                { staticClass: "category-title col-md-12" },
+                                [_vm._v(_vm._s(sub.value))]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.tags, function(tag, key) {
+                                return tag.parent == sub.id
+                                  ? _c(
+                                      "li",
+                                      {
+                                        staticClass:
+                                          "custom-control category_item category_item-299 custom-checkbox mb-2"
+                                      },
+                                      [
+                                        _c("input", {
+                                          staticClass: "custom-control-input",
+                                          attrs: {
+                                            type: "checkbox",
+                                            "data-category": tag.id,
+                                            id: "cat-" + tag.id
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "label",
+                                          {
+                                            staticClass: "custom-control-label",
+                                            attrs: { for: "cat-" + tag.id }
+                                          },
+                                          [_vm._v(_vm._s(tag.value))]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              })
+                            ],
+                            2
+                          )
+                        : _vm._e()
+                    ])
+                  })
                 ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(2)
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(3)
-      ]),
+                2
+              )
+            ])
+          })
+        ],
+        2
+      ),
       _vm._v(" "),
       _c(
         "button",
@@ -4311,12 +4470,12 @@ var staticRenderFns = [
         _c("div", { staticClass: "alert alert-danger" }, [
           _c("h5", { staticClass: "alert-heading text-center" }, [
             _vm._v(
-              "\n                        ДАННЫЕ ПУНКТЫ ВАЖНЫ\n                    "
+              "\n\t                        ДАННЫЕ ПУНКТЫ ВАЖНЫ\n\t                    "
             )
           ]),
           _vm._v(" "),
           _c("h6", { staticClass: "alert-heading text-center" }, [
-            _vm._v("НЕВЫПОЛНЕНИЕ ОНЫХ - НЕТ ОПЛАТЫ\n                    ")
+            _vm._v("НЕВЫПОЛНЕНИЕ ОНЫХ - НЕТ ОПЛАТЫ\n\t                    ")
           ]),
           _vm._v(" "),
           _c("p", [
@@ -4327,13 +4486,13 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n                        Помимо вышеперечисленного, мы указываем всю женскую атрибутику (чулки, каблуки, очки) + особенность локации и место действия (массаж, в масле, спортсменки, на природе, в лесу, на улице, в офисе и т.д.).\n                    "
+              "\n\t                        Помимо вышеперечисленного, мы указываем всю женскую атрибутику (чулки, каблуки, очки) + особенность локации и место действия (массаж, в масле, спортсменки, на природе, в лесу, на улице, в офисе и т.д.).\n\t                    "
             )
           ]),
           _vm._v(" "),
           _c("ul", [
             _vm._v(
-              "Важно проставить главные категории:\n                        "
+              "Важно проставить главные категории:\n\t                        "
             ),
             _c("li", [
               _vm._v("Это поза, нация, цвет волос + изюминку ролика: ")
@@ -4400,487 +4559,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-8 p-0", attrs: { id: "category_search" } },
-      [
-        _c("input", {
-          staticClass: "form-control-sm",
-          attrs: {
-            type: "text",
-            id: "category_search-line",
-            placeholder: "Поиск категории"
-          }
-        }),
-        _vm._v(" "),
-        _c("div", { attrs: { id: "category_search-result" } })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c(
-        "ul",
-        {
-          staticClass: "list-group list-group-flush",
-          attrs: { id: "categories_container" }
-        },
-        [
-          _c("li", { staticClass: "group-title required-group" }, [
-            _c("h5", [
-              _vm._v("Возраст "),
-              _c("span", { staticClass: "badge badge-danger" }, [_vm._v("!")]),
-              _vm._v(" "),
-              _c("hr")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-12 row categories_list" }, [
-                _c("p", { staticClass: "category-title col-md-12" }, [
-                  _vm._v("Старые")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item category_item-299 custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "299",
-                        id: "cat-299"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-299" }
-                      },
-                      [_vm._v("Старые")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "77",
-                        id: "cat-77"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-77" }
-                      },
-                      [_vm._v("Старухи")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "102",
-                        id: "cat-102"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-102" }
-                      },
-                      [_vm._v("Молодые и старые")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "181",
-                        id: "cat-181"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-181" }
-                      },
-                      [_vm._v("Старики")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "182",
-                        id: "cat-182"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-182" }
-                      },
-                      [_vm._v("Деды")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "52",
-                        id: "cat-52"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-52" }
-                      },
-                      [_vm._v("Старушки")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "63",
-                        id: "cat-63"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-63" }
-                      },
-                      [_vm._v("Бабушки")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12 row categories_list" }, [
-                _c("p", { staticClass: "category-title col-md-12" }, [
-                  _vm._v("Зрелые")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item category_item-4 custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "4",
-                        id: "cat-4"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-4" }
-                      },
-                      [_vm._v("Зрелые")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "72",
-                        id: "cat-72"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-72" }
-                      },
-                      [_vm._v("Милфы")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "108",
-                        id: "cat-108"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-108" }
-                      },
-                      [_vm._v("Постарше")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12 row categories_list" }, [
-                _c("p", { staticClass: "category-title col-md-12" }, [
-                  _vm._v("Молодые")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item category_item-42 custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "42",
-                        id: "cat-42"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-42" }
-                      },
-                      [_vm._v("Молодые")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "243",
-                        id: "cat-243"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-243" }
-                      },
-                      [_vm._v("18 лет")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "6",
-                        id: "cat-6"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-6" }
-                      },
-                      [_vm._v("Подростки")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "14",
-                        id: "cat-14"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-14" }
-                      },
-                      [_vm._v("Молоденькие")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "35",
-                        id: "cat-35"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-35" }
-                      },
-                      [_vm._v("Студенты")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  {
-                    staticClass:
-                      "custom-control category_item custom-checkbox mb-2"
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "custom-control-input",
-                      attrs: {
-                        type: "checkbox",
-                        "data-category": "68",
-                        id: "cat-68"
-                      }
-                    }),
-                    _c(
-                      "label",
-                      {
-                        staticClass: "custom-control-label",
-                        attrs: { for: "cat-68" }
-                      },
-                      [_vm._v("Юные")]
-                    )
-                  ]
-                )
-              ])
-            ])
-          ])
-        ]
-      )
-    ])
   }
 ]
 render._withStripped = true

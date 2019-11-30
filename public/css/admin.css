@@ -197,7 +197,9 @@ span.form_actor-name{
  border-style: solid;
  border-color: #707070;
 }
-
+.list-group{
+  padding-left: 40px;
+}
 .list-group li.cat_group{
   display: flex;
   align-items: center;
@@ -871,29 +873,6 @@ ul.langselector li.selected {
   padding: 2px 5px;
   background: green;
   border: 1px solid black;
-}
-
-li.category_item-65,
-li.category_item-32,
-li.category_item-49,
-li.category_item-240,
-li.category_item-299,
-li.category_item-300,
-li.category_item-301,
-li.category_item-302,
-li.category_item-303,
-li.category_item-304,
-li.category_item-305,
-li.category_item-306,
-li.category_item-307,
-li.category_item-308,
-li.category_item-309,
-li.category_item-310,
-li.category_item-311,
-li.category_item-312,
-li.category_item-313
-{
-  display: none;
 }
 
 .scrollToTop{

@@ -21,4 +21,5 @@ Route::group(['namespace_prefix' => 'Admin'], function(){
 	Route::get('sites/', 'Admin\SiteListController@show');
 	Route::get('users/', 'Admin\UsersController@show');
 	Route::get('video/', 'Admin\VideoController@getVideo');
+	Route::get('categories/', 'Admin\CategoriesController@show');
 });

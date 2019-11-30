@@ -90,47 +90,31 @@
 	                        <font id="cat-count" color="red"></font>
 	                    </div>
 	                    <div class="col-md-8 p-0" id="category_search">
-	                        <input type="text" id="category_search-line" class="form-control-sm" placeholder="Поиск категории">
+	                        <input type="text" id="category_search-line" class="form-control-sm" v-model="filteredText" @input="catFilter()" placeholder="Поиск категории">
 	                        <div id="category_search-result">
+								<li class="custom-control category_item custom-checkbox mb-2" v-for="cat in filteredCat">
+									<input type="checkbox" class="custom-control-input" data-category="112" id="cat-112">
+									<label class="custom-control-label" for="cat-112">{{ cat.value }}</label>
+								</li>
 	                        </div>
 	                    </div>
 	                </div>
 	            </div>
-	            <div class="card">
-	                <ul class="list-group list-group-flush" id="categories_container">
-	                    <li class="group-title required-group">
-	                        <h5>Возраст <span class="badge badge-danger">!</span>
-	                            <hr>
-	                        </h5>
-	                        <ul class="row">
-	                            <div class="col-md-12 row categories_list">
-	                                <p class="category-title col-md-12">Старые</p>
-	                                <li class="custom-control category_item category_item-299 custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="299" id="cat-299"><label class="custom-control-label" for="cat-299">Старые</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="77" id="cat-77"><label class="custom-control-label" for="cat-77">Старухи</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="102" id="cat-102"><label class="custom-control-label" for="cat-102">Молодые и старые</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="181" id="cat-181"><label class="custom-control-label" for="cat-181">Старики</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="182" id="cat-182"><label class="custom-control-label" for="cat-182">Деды</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="52" id="cat-52"><label class="custom-control-label" for="cat-52">Старушки</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="63" id="cat-63"><label class="custom-control-label" for="cat-63">Бабушки</label></li>
-	                            </div>
-	                            <div class="col-md-12 row categories_list">
-	                                <p class="category-title col-md-12">Зрелые</p>
-	                                <li class="custom-control category_item category_item-4 custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="4" id="cat-4"><label class="custom-control-label" for="cat-4">Зрелые</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="72" id="cat-72"><label class="custom-control-label" for="cat-72">Милфы</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="108" id="cat-108"><label class="custom-control-label" for="cat-108">Постарше</label></li>
-	                            </div>
-	                            <div class="col-md-12 row categories_list">
-	                                <p class="category-title col-md-12">Молодые</p>
-	                                <li class="custom-control category_item category_item-42 custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="42" id="cat-42"><label class="custom-control-label" for="cat-42">Молодые</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="243" id="cat-243"><label class="custom-control-label" for="cat-243">18 лет</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="6" id="cat-6"><label class="custom-control-label" for="cat-6">Подростки</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="14" id="cat-14"><label class="custom-control-label" for="cat-14">Молоденькие</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="35" id="cat-35"><label class="custom-control-label" for="cat-35">Студенты</label></li>
-	                                <li class="custom-control category_item custom-checkbox mb-2"><input type="checkbox" class="custom-control-input" data-category="68" id="cat-68"><label class="custom-control-label" for="cat-68">Юные</label></li>
-	                            </div>
-	                        </ul>
-	                    </li>
-	                </ul>
+	            <div class="card" v-for="(category, index) in categories">
+	            	<ul class="list-group list-group-flush" id="categories_container">
+            			<h5 class="group-title">{{ category.value }} <span v-if="category.required" class="badge badge-danger">!</span>
+                            <hr>
+                        </h5>
+                        <ul class="row" v-for="sub in sub_cat">
+                        	<div class="col-md-12 row categories_list" v-if="sub.parent == category.id">
+								<p class="category-title col-md-12">{{ sub.value }}</p>
+								<li v-for="(tag, key) in tags" v-if="tag.parent == sub.id" class="custom-control category_item category_item-299 custom-checkbox mb-2">
+									<input type="checkbox" class="custom-control-input" :data-category="tag.id" :id="'cat-'+tag.id">
+									<label class="custom-control-label" :for="'cat-'+tag.id">{{ tag.value }}</label>
+								</li>
+                        	</div>
+                        </ul>
+	            	</ul>
 	            </div>
 	        </div>
 	        <button id="video_set" data-id="5950" type="button" class="btn btn-success" @click="setVideoInfo()">сохранить</button>
@@ -146,14 +130,24 @@
 				title: '',
 				keywords: '',
 				description: '',
-				info: ''
+				categories: [],
+				sub_cat: [],
+				tags: [],
+				info: '',
+				filteredText: '',
+				filteredCat: []
 			}
 		},
 		async created(){
 			try {
-				const res = await axios.get('/api/video');
-				this.video = res.data;
-				console.log(this.video);
+				const videoinfo = await axios.get('/api/video');
+				this.video = videoinfo.data;
+
+				const responce = await axios.get('/api/categories');
+				this.categories = responce.data.filter( item => item.parent == 0);
+				this.sub_cat    = responce.data.filter( item => item.sort == 2);
+				this.tags       = responce.data.filter( item => item.sort == 3);
+
 			} catch(e) {
 				console.error(e);
 			}
@@ -162,12 +156,14 @@
 			setVideoInfo(){
 				console.log(this.title);
 			},
-			inputLength(){
-			}
 		},
 		computed: {
-			showTitle(){
-				console.log(this.title);
+			catFilter(){
+				if (this.filteredText.length){
+					this.filteredCat =  this.tags.filter(item => item.value.toLowerCase().indexOf(this.filteredText.toLowerCase()) >= 0);
+				} else {
+					this.filteredCat = [];
+				}
 			}
 		}	
 	}
