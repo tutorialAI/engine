@@ -14,38 +14,26 @@
 Auth::routes();
 
 Route::get('/', function () {
-    // return view('layouts.home');
-    echo  "middleware is successfully working";
+    return view('layouts.home');
 })->middleware('siteFolder');
 
 // Route::get('/password', function () {
 //     return view('layouts.home');
 // });
 
-// Routes if user administrator and authorized
-
-Route::group(['middleware' => ['web', 'auth']], function(){
+Route::group(['middleware' => ['web', 'auth', 'access']], function(){
 
   Route::get('/admin', function(){
     $users['users'] = Auth::user();
-    switch (Auth::user()->access) {
-      case 1:
-        return view('dashboard.admin', $users);
-        break;
-      case 2:
-        return view('dashboard.copyrighter', $users);
-        break;
-      case 3:
-        return view('dashboard.moderator', $users);
-        break;
-      default:
-        return view('users.home');
-        break;
-    }
+    return view('layouts.admin', $users);
   });
 
-  Route::get('/admin/video', 'VideosController@index');
-  Route::get('/admin/video/get', 'VideosController@getVideos');
+  Route::get('/admin/{any}', 'Admin\AdminSpaController@index')->where('any', '.*');
+});
+
+Route::get('/user', function(){
+  $user = Auth::user()->name;
+  return view('users.home')->with('name', $user);
 });
 
 Route::resource('statistica', 'StatisticsController');

@@ -1,6 +1,3 @@
-@extends('layouts.admin')
-
-@section('content')
 <h3>
   Админпанель
 </h3>
@@ -9,7 +6,7 @@
   <font color="#3eA">
     {{ $users->name }}
   </font>
-    <i>Адсинистратор</i>
+  <i>Администратор</i>
 </h4>
 
 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -20,4 +17,3 @@
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
 </form>
-@endsection

@@ -14,43 +14,57 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="wrapper" id="#app">
-        @include('inc.sidebar')
-        <div id="content" class="app admin">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn btn-primary">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                       <i class="fas fa-align-justify"></i>
-                    </button>
-                    <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Page</a>
-                            </li>
-                        </ul>
-                    </div>
+    <div id="app">
+        <div class="wrapper">
+{{--     <div id="content" class="admin">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                   <i class="fas fa-align-justify"></i>
+                </button>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Page</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
             @yield('content')
         </div>
+    </div> --}}
+            <nav id="sidebar" class="">
+                <sidebar></sidebar>
+            </nav>
+            <div id="content">
+                <!-- preloader -->
+                <div class="preloader">
+                    <div class="preloader-image"></div>
+                </div>
+                <router-view></router-view>
+                {{-- <dashboard></dashboard> --}}
+            </div> 
+        </div>
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
