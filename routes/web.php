@@ -36,7 +36,7 @@ Route::group(['middleware' => ['web', 'auth']], function(){
         return view('dashboard.copyrighter', $users);
         break;
       case 3:
-        return view('dashboard.admin', $users);
+        return view('dashboard.moderator', $users);
         break;
       default:
         return view('users.home');

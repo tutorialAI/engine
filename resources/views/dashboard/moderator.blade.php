@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 
-
 @section('content')
     <div class="display">
       <h3>
@@ -8,10 +7,10 @@
       </h3>
       <h4>
         Привет
-        <font color="#c5c98e">
+        <font color="#16beff">
           {{ $users->name }}
         </font>
-        <i>Копирайтер</i>
+        <i>Модератор</i>
       </h4>
     </div>
 @endsection
